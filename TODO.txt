@@ -1,0 +1,19 @@
+TODO:
+-create a working notebook to use as base
+-formulate standardized prompts to be used for each model (both for reasoning and instruction based)
+-divide the models among colleagues
+-test quantized version of the models with inference
+
+------------------------------------------------------------------------------------------------------------
+DOING:
+
+
+
+------------------------------------------------------------------------------------------------------------
+SOURCES:
+https://docs.wandb.ai/guides/prompts   ->  a free, cloud-based ML tracking service for evaluating summaries
+https://huggingface.co/TheBloke/Llama-2-7B-Chat-AWQ    -> example of quantized version of llama from "TheBloke"
+
+------------------------------------------------------------------------------------------------------------
+DONE:
+repo creation

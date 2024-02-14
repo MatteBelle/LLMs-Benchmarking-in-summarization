@@ -1,0 +1,25 @@
+1. Types of summary.
+
+A crucial aspect of this project involves deciding the kinds of synthesis we want to experiment with. Thus, we selected the following:
+
+Reasoning-based
+1. Generate a text {10-20-30} times shorter
+2. Generate a text of length e•ln^2 w.r.t. the number of words in the document
+Instruction-based
+3. {50-75-100-125-150-175-200} words
+4. 1-sentence
+5. Bullet-point (3-5-10 items)
+------------------------------------------------------------------------------------------------------------ 
+2. Evaluation criteria.
+Assessing a generated summary without specifying the criteria for evaluation can be ambiguous and lacking in technical soundness. As we do not have real datasets containing multiple summaries of different types, we cannot evaluate the generated predictions w.r.t. gold targets. Therefore, we cannot use general metrics such as ROUGE or BERTScore, because they are out of scope. For this reason, we use simple criteria to assess the correctness of the generated summaries. Specifically, we use NLTK word_tokenize to check the number of predicted words and compare them with the instruction (for 1,2,3). The sentence-level instruction (4,5) can be checked with NLTK sent_tokenize. Furthermore, we should also test the quality of the generated summaries. As we cannot rely on a target summary, we selected BARTScore to evaluate the factualness and semantic similarity of the predicted summary against the source document.
+------------------------------------------------------------------------------------------------------------ 
+3. Large Language Models. Which LLM should I have to test? We have selected a small batch of state-of-the-art open-source LLMs with a number of parameters that make them easily usable on Google Colab, especially if quantized.
+1B: tiny-llama-chat
+7B: pmc-llama, llama2-chat, zephyr-alpha, mistral, notus, starling, orca2
+10B: solar
+13B: llama2-chat, orca2
+Please keep in mind that you only have to make inference and not training, so try to use as many of these LLMs you can! To further speed-up inference, you can use the AWQ (quantized) version provided by TheBloke, e.g., https://huggingface.co/TheBloke/Llama-2-7B-Chat-AWQ
+------------------------------------------------------------------------------------------------------------
+4. Dataset. Which dataset should I have to experiment with? As our goal is to produce a panoply of different summaries (ranging from 1-sentence and more verbose), we should deal with long documents that are easily to shorten in diverse ways. To this aim, we selected a single well-known biomedical dataset for long document summarization: PubMed. However, due its massive size, it’s unfeasible to test the entire data with multiple LLMs and summaries. For this reason, we already selected a representative subset using stratified random sampling, retaining less than 1000 documents for the experimental part. pubmed.pkl
+------------------------------------------------------------------------------------------------------------
+5.   Tracking. Try to design the best prompts you can for each kind of summary. You will engage in multiple inference runs briefly. Managing each test (LLM, prompt) and their corresponding generated summaries and metric scores could become a daunting task without the right tools. You will utilize WandB (a free, cloud-based ML tracking service), as it seamlessly integrated into your code, also making it a valuable skill to highlight on your CV.
