@@ -1,14 +1,13 @@
 TODO:
--create a working notebook to use as base
+-create a working notebook to use as template
 -formulate standardized prompts to be used for each model (both for reasoning and instruction based)
--divide the models among colleagues
 -test quantized version of the models with inference
 
 ------------------------------------------------------------------------------------------------------------
 DOING:
-
-
-
+Parsa: llama2-chat, orca2 (13B), solar 
+Matteo: tiny-llama-chat, pmc-llama, llama2-chat, zephyr-alpha
+Cip: mistral, notus, starling, orca2 (7B)
 ------------------------------------------------------------------------------------------------------------
 SOURCES:
 https://docs.wandb.ai/guides/prompts   ->  a free, cloud-based ML tracking service for evaluating summaries
@@ -16,4 +15,5 @@ https://huggingface.co/TheBloke/Llama-2-7B-Chat-AWQ    -> example of quantized v
 
 ------------------------------------------------------------------------------------------------------------
 DONE:
-repo creation
+-repo creation
+-divide the models among colleagues
